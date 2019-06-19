@@ -6,14 +6,18 @@
 // Level 2 (More Challenging):
 // Take a move with multiple words (ex: Forrest Gump) as a Node argument and retrieve the year it was created.
 // ---------------------------------------------------------------------------------------------------------
-
+const ax = require("axios");
 // Include the axios npm package (Don't forget to run "npm install axios" in this folder first!)
 // ...
-
+const input = process.argv.slice(2)
 
 // Grab or assemble the movie name and store it in a variable called "movieName"
 var movieName = "";
 // ...
+for(let i =0; i < input.length;i++){
+    movieName += '+'+ input[i];
+}
+console.log(movieName);
 
 
 // Then run a request with axios to the OMDB API with the movie specified
