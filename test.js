@@ -42,3 +42,17 @@ function passwordValidator(string){
     return false;
 }
 
+
+function addArray(array, map){
+    let output = [];
+    array.forEach(element => {
+        output.push(map(element))
+    });
+    return output;
+}
+
+let testArray = [1,2,3,4,5,6,7,8]
+
+console.log(addArray(testArray, function(num){
+    return num+1
+}));

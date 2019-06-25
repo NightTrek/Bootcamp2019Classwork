@@ -10,6 +10,8 @@
 
 * Once you have managed to successfully bring the two datasets together, start making queries like those you made earlier to this new table as well.
 
+SELECT Artists grouped by 
+
 Expected input:
 ```
 queen

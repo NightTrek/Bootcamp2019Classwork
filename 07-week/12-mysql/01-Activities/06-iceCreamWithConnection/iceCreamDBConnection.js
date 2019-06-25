@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
   user: "root",
 
   // Your password
-  password: "",
+  password: "password",
   database: "ice_creamDB"
 });
 
@@ -19,3 +19,11 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
   connection.end();
 });
+
+
+connection.query(sql: "SELECT * FROM products", values: function(err, res){
+  if(err){
+    
+  }
+
+})

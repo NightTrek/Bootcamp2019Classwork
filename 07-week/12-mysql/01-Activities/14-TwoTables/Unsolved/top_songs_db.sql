@@ -1,0 +1,38 @@
+DROP DATABASE IF EXISTS top_songs_db;
+
+CREATE DATABASE top_songs_db;
+
+USE top_songs_db;
+
+CREATE TABLE songs
+(
+    id INT NOT NULL
+    AUTO_INCREMENT,
+  artist VARCHAR
+    (80) NOT NULL,
+  songName VARCHAR
+    (80) NOT NULL,
+  releaseYear INTEGER
+    (10) NOT NULL,
+  USA FLOAT NOT NULL,
+  UK FLOAT NOT NULL,
+  EU FLOAT NOT NULL,
+  SouthAmerica Float NOT NULL,
+  world FLOAT NOT NULL,
+  PRIMARY KEY
+    (id)
+);
+
+CREATE TABLE albums
+(
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  arist VARCHAR(80) NOT NULL,
+  album VARCHAR(80) NOT NULL,
+  releaseYear INTEGER(10) NOT NULL,
+  USA DECIMAL NOT NULL,
+  UK DECIMAL NOT NULL,
+  EU DECIMAL NOT NULL,
+  SouthAmerica DECIMAL NOT NULL,
+  world DECIMAL NOT NULL,
+  PRIMARY KEY(id)
+);
