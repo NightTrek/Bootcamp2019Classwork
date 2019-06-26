@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Example queryURL for Giphy API
+
+    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9";
+
+    var searchForGif = function(str, limit){
+      return `https://api.giphy.com/v1/gifs/search?q=${str}&api_key=7NCgQNu9PIxYnwBdzXkXtF9OLJEuaVd3&limit=${limit}`
+    }
+
+    $.ajax({
+      url: searchForGif('programming+humor', 1),
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+
+
+    });
+
+    // $.ajax({
+    //   url: searchForGif('programming+humor', 1),
+    //   method: "GET"
+    // }).then(function(response) {
+    //   console.log(response);
+      
+
+    // });
+
+    // $.ajax({
+    //   url: searchForGif('programming+humor', 5),
+    //   method: "GET"
+    // }).then(function(response) {
+    //   console.log(response);
+      
+
+    // });
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

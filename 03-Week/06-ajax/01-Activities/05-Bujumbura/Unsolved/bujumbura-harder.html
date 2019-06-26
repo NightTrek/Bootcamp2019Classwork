@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bujumbura Data</title>
+</head>
+
+<body>
+  <!-- Retrieved data will be dumped here -->
+  <div class="city"></div>
+  <div class="wind"></div>
+  <div class="humidity"></div>
+  <div class="temp"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Things to accomplish:
+    // Get an API Key from OpenWeatherMap API
+    // Create an AJAX call to retrieve data Log the data in console
+    // Log the data in HTML
+    // Scream Ushindi (victory in Swahili)! at the top of your lungs
+
+    var findWeatherinCityName = function(str){
+      return `https://api.openweathermap.org/data/2.5/weather?q=${str}&units=imperial&APPID=8e024863714b99764415af5f004fb0e8`;
+    }
+    var getAirPolutionData = function(){
+      return `http://api.openweathermap.org/pollution/v1/co/37.8718320048,-122.2715784782/current.json?appid=8e024863714b99764415af5f004fb0e8 `
+    }
+
+    var convertKelvinToF = function(str){
+      return (parseInt(str)-273.15)*9/5+32
+    }
+    $.ajax({
+      url: "http://www.airnowapi.org/aq/forecast/zipCode/?format=application/json&zipCode=94605&date=2019-06-03&distance=25&API_KEY=9EE3B015-85D0-494B-B3B1-EA242E0B0766",
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+
+      // Create CODE HERE to Log the queryURL
+      // Create CODE HERE to log the resulting object
+      // Create CODE HERE to transfer content to HTML
+      // $('.city').text("Bujumbura");
+      // $('.wind').text(`wind speed:${response.wind.speed}  wind temp: ${convertKelvinToF(response.wind.deg)}`);
+      // $('.humidity').text(`humidity: ${response.main.humidity}`);
+      // $('.temp').text(`temprature: ${response.main.temp}`)
+      // Create CODE HERE to calculate the temperature (converted from Kelvin)
+      // Hint: To convert from Kelvin to Fahrenheit: F = (K - 273.15) * 1.80 + 32
+      // Create CODE HERE to dump the temperature content into HTML
+
+    });
+
+
+  </script>
+
+</body>
+
+</html>

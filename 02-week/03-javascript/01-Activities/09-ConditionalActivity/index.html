@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        var eatSteak = confirm("do you eat stake?");
+     
+        if (eatSteak == true){
+            document.write("<h1>Here's a stake sandwich</h1>");
+        }
+        else{
+            document.write("<h1>Here’s a Tofu Stir-Fry!</h1>");
+        }
+
+        var usersBirthYear = prompt(" what is your birth year");
+        var currentYear = 2019;
+        var age = (parseInt(usersBirthYear)-currentYear)*-1;
+        var drinkingAge = 21;
+        console.log(currentYear);
+        console.log(usersBirthYear);
+        console.log(age);
+
+
+        if(age > drinkingAge && age<100){
+            document.write("get schwifty in here");
+        }
+        else{
+            document.write("your a child you get nothing")
+        }
+    </script>
+
+    
+    
+</body>
+</html>

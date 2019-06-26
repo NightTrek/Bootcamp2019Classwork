@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 1</title>
+</head>
+
+<body>
+
+  <div id="game" style="position: static; background-color: aqua">
+    <p> player score : </p> <p id="player-score"> 3</p>
+    <p>Computer score: </p> <p id="computer-score"> 5</p>
+    <p>ties: </p> <p id="stalemates"> 5</p>
+    <p>Computer guesses: </p> <p id="computer-g"> </p>
+    <p>player guesses: </p> <p id="player-g"> </p>
+  </div>
+
+  <script type="text/javascript">
+    // Whenever a key is pressed, alert "pressed a button".
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    function checkWin(score) {
+      if (score == 3) {
+        return true;
+      }
+    }
+    var rps = ["r", "p", "s"];
+    var rps2 = ["rock", "Paper", "Scissors"]
+
+
+    var computerPlay = 4;
+    var humanPlay;
+    var compScore = 0;
+    var humScore = 0;
+    var stalemate = false;
+
+    document.onkeyup = function (event) {
+      stalemate = false;
+      computerPlay = getRandomInt(3);
+
+
+      if(event.key == " ") {
+        alert(" game reset")
+        computerPlay = getRandomInt(3);
+        humanPlay = 4;
+        compScore = 0;
+        humScore = 0;
+      }
+
+      rps.forEach((element, index) => {
+        if (element == event.key) {
+          humanPlay = index;
+          console.log(" human play =  " + humanPlay);
+          // computerPlay = getRandomInt(3);
+
+
+          if (humanPlay == computerPlay) {
+            alert("stalemate ")
+            stalemate = true;
+
+
+          }
+
+          console.log("hp " + humanPlay + "  CP " + computerPlay)
+          if (humanPlay == 0 && computerPlay == 1 || humanPlay == 1 && computerPlay == 2 || humanPlay == 2 && computerPlay == 0) {
+            compScore += 1;
+            alert("computer scores with a " + rps2[computerPlay] + " the score is " + compScore + " to your " + humScore);
+            if(compScore == 10){
+              alert("you lost!  nice wanna try again? hit space bar");
+            }
+          }
+          else if(!stalemate){
+            humScore += 1;
+            alert(" you scored!! the score is " + compScore + " to your " + humScore)
+            if(humScore == 10){
+              alert("you win!! nice wanna try again? hit space bar")
+            }
+          }
+
+        }
+
+      });
+
+
+
+
+    };
+
+  </script>
+
+</body>
+
+</html>

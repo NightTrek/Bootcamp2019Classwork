@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>car game</title>
+</head>
+
+<body>
+    <h1>Car game</h1>
+    <p>press h to honk</p>
+
+    <script>
+        var car = {
+            make: "Honda",
+            model: "civic",
+            color: "Blue Raspberry",
+            mileage: 3000,
+            isWorking: true,
+
+            driveToWork: function () {
+                this.mileage = this.mileage + 9;
+
+            },
+
+            driveAroundWorld: function () {
+                this.mileage = this.mileage + 24000;
+
+                this.isWorking = false;
+            },
+
+            getTuneUp: function () {
+                console.log("car is tuned up now!")
+                this.isWorking = true;
+            },
+
+            honk: function () {
+                alert("Honk! Honk!");
+            }
+
+        };
+
+        var reWriteStats = function (car) {
+            console.log(car.make);
+            console.log(car.model);
+            console.log(car.color);
+            console.log(car.mileage);
+            console.log(car.isWorking);
+            console.log("-----------------------------")
+        }
+
+        document.onkeyup = function(event){
+            if (event.key == "h") {
+                car.honk();
+            }
+            if (event.key == "g") {
+                car.getTuneUp();
+            }
+            if (event.key == "d"){
+                car.driveToWork();
+            }
+            if (event.key == "a"){
+                car.driveToWork();
+            }
+            reWriteStats(car);
+        };
+
+    </script>
+
+
+</body>
+
+</html>

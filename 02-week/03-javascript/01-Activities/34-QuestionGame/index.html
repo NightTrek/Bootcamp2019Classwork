@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>question game</h1>
+
+    <h3>Press spacebar to reset</h3>
+
+    <p id="question-display">question</p>
+
+
+    <script>
+        const questionDisplay = document.getElementById("question-display");
+        const question = [
+            {question: "is the sky blue?", a: "true"},
+            {question: "are you older than 10", a: "t"},
+            {question: "do you speak spanish", a: "false"},
+            {question: "is -10 a postive number", a: "false"},
+            {question: "is redbull good for you", a: "false"},
+            {question: "is it before 12pm", a: "false"},
+            {question: "is an array an obj", a: "true"},
+            {question: "is a penny board a longboard", a: "true"},
+            {question: "the capital of france paris", a: "true"},
+            {question: "after the speed of sound everything gets loud", a: false}
+        ];
+
+        var score = 0;
+        
+        
+    
+        document.onkeyup = function(event) {
+            var currentQuestion = question[1];
+            if(event.key == " "){
+                currentQuestion = question[Math.floor(Math.random() * question.length)];
+                console.log(currentQuestion);
+                questionDisplay.textContent = currentQuestion.question;
+                score = 0;
+            }
+            
+            if(event.key == "t"|| event.key == "f"){
+                if(event.key == currentQuestion.a){
+                    alert("your correct!");
+                    score+=1;
+                }
+                alert("nice try not the right answer")
+                var currentQuestion = question[Math.floor(Math.random() * question.length)];
+
+            }
+
+        }
+    
+    
+    </script>
+</body>
+</html>

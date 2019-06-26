@@ -1,0 +1,9 @@
+.container{
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.inputbox{
+    outline: 3px solid black;
+    padding-left: 10%;
+}
