@@ -53,6 +53,22 @@ function addArray(array, map){
 
 let testArray = [1,2,3,4,5,6,7,8]
 
-console.log(addArray(testArray, function(num){
-    return num+1
-}));
+// console.log(addArray(testArray, function(num){
+//     return num+1
+// }));
+
+
+
+const arrayMap = function(array, truthy){
+    let output = [];
+    for(key in array){
+        if(truthy(array[key])){
+            output.push(array[key])
+        }
+    }
+    return output;
+}
+
+let array1 = [1,2,3,4,5,6,4,2]
+
+console.log(arrayMap(array1, function(num){return num > 2}))
