@@ -9,6 +9,8 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 var animals = [
   {
@@ -36,21 +38,25 @@ var animals = [
 
 app.get("/dog", function(req, res) {
   // Handlebars requires an object to be sent to the dog.handlebars file. Lucky for us, animals[0] is an object!
-
+  res.render("dog", animals[0]);
   // 1. Send the dog object from the animals array to the dog.handlebars file.
 
 });
 
 app.get("/all-pets", function(req, res) {
   // Handlebars requires an object to be sent to the index.handlebars file.
-
+  res.render("index", animals);
   // 2. Send the animals to the index.handlebars file. Remember that animals is an array and not an object.
 
 });
 
 app.get("/all-non-pets", function(req, res) {
   // Handlebars requires an object to be sent to the index.handlebars file.
+  let output
+  for(key in animals){
 
+  }
+  res.render("index", lunches[0]);
   // 3. Send all the animals that are not pets to the index.handlebars file.
 
 });

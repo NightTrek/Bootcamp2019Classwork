@@ -1,4 +1,5 @@
 var express = require("express");
+var mysql = require("mysql");
 
 var app = express();
 var PORT = 3000;
@@ -14,13 +15,13 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var mysql = require("mysql");
+
 
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
+  password: "password",
   database: "quotes_db"
 });
 
@@ -34,7 +35,7 @@ connection.connect(function(err) {
 
 // Serve index.handlebars to the root route, populated with all quote data.
 app.get("/", function(req, res) {
-
+  
 });
 
 // Serve single-quote.handlebars, populated with data that corresponds to the ID in the route URL.

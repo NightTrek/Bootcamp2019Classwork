@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Ice Cream options</h1>
+    </div>
+  </div>
+  <div class="row">
+    
+  {{#each icecreams}}
+  	<div class="col-sm-4">
+  	   <p>name: {{this.name}}</p>
+       <p>price: {{this.price}}</p>
+       <p>coolness: {{this.awesomeness}}</p>
+       <button> Select</button>
+  	</div>
+  {{/each}}
+
+  </div>
+</div>
+
+
+<style>
+
+.cream{
+  position:inherit;
+}
+
+</style>
