@@ -10,7 +10,7 @@ var app = express();
 
 // Database configuration
 // Save the URL of our database as well as the name of our collection
-var databaseUrl = "zoo";
+var databaseUrl = "zoo_db";
 var collections = ["animals"];
 
 // Use mongojs to hook the database to the db variable
@@ -30,6 +30,35 @@ app.get("/", function(req, res) {
 app.get("/all", function(req, res) {
   // Query: In our database, go to the animals collection, then "find" everything
   db.animals.find({}, function(err, data) {
+    // Log any errors if the server encounters one
+    if (err) {
+      console.log(err);
+    }
+    else {
+      // Otherwise, send the result of this query to the browser
+      res.json(data);
+    }
+  });
+});
+
+
+app.get("/name", function(req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything
+  db.animals.find().sort({"name":1}, function(err, data) {
+    // Log any errors if the server encounters one
+    if (err) {
+      console.log(err);
+    }
+    else {
+      // Otherwise, send the result of this query to the browser
+      res.json(data);
+    }
+  });
+});
+
+app.get("/weight", function(req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything
+  db.animals.find().sort({"weight":1}, function(err, data) {
     // Log any errors if the server encounters one
     if (err) {
       console.log(err);

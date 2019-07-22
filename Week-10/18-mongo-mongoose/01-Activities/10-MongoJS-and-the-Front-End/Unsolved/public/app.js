@@ -15,14 +15,38 @@
   *Bonus*: Write code to set an 'active' state on the column header. It should make the color sorted-by column red.
   *Bonus*: Add additional ways to sort (e.g. by class or number of legs)
 */
+$(document).on("click", "#weight-sort", async function(){
+console.log("click1");
+let response = await $.ajax({
+  method: "POST",
+  url: "http://localhost:3000/name",
+  data: data
+
+});
+
+
+});
+
+
+
+$(document).on("click", "#name-sort", async function(){
+console.log("click2");
+
+
+});
 
 // We'll be rewriting the table's data frequently, so let's make our code more DRY
 // by writing a function that takes in data (JSON) and creates a table body
 function displayResults(data) {
-  // Add to the table here...
+  $("#results").empty();
+  data.forEach(element => {
+    let row =$("<tr>");
+  row.append($("<td>").text(element.name)).append($("<td>").text(element.numberOfLegs)).append($("<td>").text(element.class)).append($("<td>").text(element.weight)).append($("<td>").text(element.whatIwouldReallyCallIt));
+  $("#results").append(row);
+  });
 }
 
 $.getJSON("/all", function(data) {
-  // Call our function to generate a table body
+  console.log(data)
   displayResults(data);
 });
